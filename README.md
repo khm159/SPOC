@@ -13,7 +13,7 @@ SPOC: Safety-Aware Planning Under Partial Observability and Physical Constraints
     <a href="https://github.com/khm159">Hyungmin Kim<sup>1</sup></a>, 
     <a href="">Hobeom Jeon<sup>1</sup></a>, 
     <a href="">Dohyung Kim<sup>1,2</sup></a>, 
-    <a href="https://zebehn.github.io/">Minsu Jang*<sup>1,2</sup></a>, 
+    <a href="https://zebehn.github.io/">Minsu Jang<sup>1,2</sup></a>, 
     <a href="">Jaehong Kim<sup>2</sup></a>
 </p>
 <p align="center">[1] University Science and Technology, South Korea </p>
