@@ -1,0 +1,39 @@
+{
+    "scene_name": "FloorPlan216",
+    "instruction": "Put the vase in the box and put the box on the side table, then put the statue on the dining table. ",
+    "requirements": " Close the box immediately after putting the vase inside so that the vase won't fall out of the box when moving it.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Box",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["Vase"]
+        },
+        "goal_condition": {
+            "isOpen": false
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Box",
+            "child":["Vase"],
+            "parent": ["SideTable"],
+            "isOpen": false
+        },
+        {
+            "object_name": "Statue",
+            "parent": ["DiningTable"]
+        }
+    ],
+    "init_actions": [
+        {
+            "action": "CloseObject",
+            "args": {
+                "objectId": "Box|-03.78|+01.30|+00.46",
+                "forceAction": true
+            }
+        }
+    ]
+}

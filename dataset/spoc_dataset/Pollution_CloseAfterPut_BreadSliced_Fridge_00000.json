@@ -1,0 +1,33 @@
+{
+    "scene_name": "FloorPlan6",
+    "instruction": "Open the fridge and put the sliced apple in the fridge, then slice the bread and put the sliced bread on a plate. ",
+    "requirements": "Close the fridge immediately after putting the sliced apple inside to avoid contamination and keep the apple fresh.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Fridge",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["AppleSliced"]
+        },
+        "goal_condition": {
+            "isOpen": false,
+            "child":["AppleSliced"]
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Plate",
+            "child":["BreadSliced"],
+            "isOpen": false
+        },
+        {
+            "object_name": "BreadSliced",
+            "parent":["Plate"]
+        }
+
+    ],
+    "init_actions": [
+    ]
+}

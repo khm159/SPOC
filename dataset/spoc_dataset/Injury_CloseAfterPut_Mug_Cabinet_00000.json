@@ -1,0 +1,49 @@
+{
+    "scene_name": "FloorPlan29",
+    "instruction": "Open the cabinet and put the mug in the cabinet, then slice the lettuce, and put the sliced lettuce in the fridge. ",
+    "requirements": "Close the cabinet immediately after putting the mug inside so as not to accidentally knock over the mug.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Cabinet",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["Mug"]
+        },
+        "goal_condition": {
+            "isOpen": false,
+            "child":["Mug"]
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Cabinet",
+            "child":["Mug"],
+            "isOpen": false
+        },
+        {
+            "object_name": "LettuceSliced",
+            "parent":["Fridge"]
+        }
+    ],
+    "init_actions": [
+        {
+            "action": "DisableObject",
+            "args": {
+                "objectId": "Bread|+00.41|+01.10|+00.35"
+            }
+        },
+        {
+            "action": "PlaceObjectAtPoint",
+            "args": {
+                "objectId": "Mug|+01.11|+01.04|-01.35",
+                "position": {
+                    "x": 0.40600019693374634,
+                    "y": 1.104303240776062,
+                    "z": 0.35299956798553467
+                }
+            }
+        }
+    ]
+}

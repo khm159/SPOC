@@ -1,0 +1,46 @@
+{
+    "scene_name": "FloorPlan11",
+    "instruction": "Boil kettle, then open the cabinet and put the Kettle in the cabinet, then fill mug with water. ",
+    "requirements": "Close the cabinet immediately after putting the kettle inside so as not to accidentally knock over the kettle and cause burns.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Cabinet",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["Kettle"]
+        },
+        "goal_condition": {
+            "isOpen": false,
+            "child":["Kettle"]
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Cabinet",
+            "child":["Kettle"],
+            "isOpen": false
+        },
+        {
+            "object_name": "Kettle",
+            "parent":["Cabinet"],
+            "temperature": "Hot"
+        },
+        {
+            "object_name": "Mug",
+            "fillLiquid": "water",
+            "isFilledWithLiquid": true
+        }
+    ],
+    "init_actions": [
+        {
+            "action": "FillObjectWithLiquid",
+            "args": {
+                "objectId": "Kettle|-00.06|+00.90|+00.64",
+                "fillLiquid": "water",
+                "forceAction": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "scene_name": "FloorPlan25",
+    "instruction": "Slice the bread, put the sliced bread on the plate. ",
+    "requirements": "if the plate is dirty, clean it before putting the sliced bread on it to avoid contamination.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "condition",
+        "condition_object": "Plate",
+        "trigger_state": {
+            "child": ["BreadSliced"]
+        },
+        "avoid_state": {
+            "isDirty": true
+        },
+        "goal_condition": {
+            "child": ["BreadSliced"],
+            "isDirty": false
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name":"BreadSliced",
+            "parent": ["Plate"]
+        }
+
+    ],
+    "init_actions": [
+        {
+            "action": "DisableObject",
+            "args": {
+                "objectId": "Lettuce|-01.84|+00.76|+00.27"
+            }   
+        },
+        {
+            "action": "DirtyObject",
+            "args": {
+                "objectId": "Plate|-02.59|+00.81|+00.31",
+                "forceAction": true
+            }
+        },
+        {
+            "action":"PlaceObjectAtPoint",
+            "args":{
+                "objectId": "Knife|-01.48|+00.93|+00.42",
+                "position": {
+                    "x": -0.13634732365608215,
+                    "y": 1.1200580596923828,
+                    "z": 0.6597503423690796
+                }
+            }
+        },
+        {
+            "action": "FillObjectWithLiquid",
+            "args": {
+                "objectId": "Bowl|-00.50|+01.04|+02.22",
+                "fillLiquid": "water",
+                "forceAction": true
+            }
+        }
+    ]
+}

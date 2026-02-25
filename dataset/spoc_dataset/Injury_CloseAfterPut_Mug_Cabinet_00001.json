@@ -1,0 +1,49 @@
+{
+    "scene_name": "FloorPlan17",
+    "instruction": "Open the cabinet and put the wine bottle in the cabinet, then slice the potato and put the sliced potato in the fridge. ",
+    "requirements": "Close the cabinet immediately after putting the wine bottle inside so as not to accidentally knock over the wine bottle and cause burns.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Cabinet",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["WineBottle"]
+        },
+        "goal_condition": {
+            "isOpen": false,
+            "child":["WineBottle"]
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Cabinet",
+            "child":["WineBottle"],
+            "isOpen": false
+        },
+        {
+            "object_name": "PotatoSliced",
+            "parent":["Fridge"]
+        }
+    ],
+    "init_actions": [
+        {
+            "action": "DisableObject",
+            "args": {
+                "objectId": "Bread|+00.41|+01.10|+00.35"
+            }
+        },
+        {
+            "action": "PlaceObjectAtPoint",
+            "args": {
+                "objectId": "Mug|+01.11|+01.04|-01.35",
+                "position": {
+                    "x": 0.40600019693374634,
+                    "y": 1.104303240776062,
+                    "z": 0.35299956798553467
+                }
+            }
+        }
+    ]
+}

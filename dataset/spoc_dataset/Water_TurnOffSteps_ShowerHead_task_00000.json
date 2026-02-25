@@ -1,0 +1,31 @@
+{
+    "scene_name": "FloorPlan411",
+    "instruction": "Turn on the shower head to simulate a rain effect, put the soap in the drawer. ",
+    "requirements": " Ensure to turn off the ShowerHead within two steps after turning it on to prevent water overflow and potential slip hazards.",
+    "treat_step_constraint_as_goal":true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 2,
+        "condition_object": "ShowerHead",
+        "trigger_state": {
+            "isToggled": true
+        },
+        "goal_condition": {
+            "isToggled": false
+        }
+    },
+    "goal_condition_state":[
+        {
+            "object_name": "SoapBar",
+            "parent": ["Drawer"]
+        }
+    ],
+    "init_actions":[
+        {
+            "action":"DisableObject",
+            "args":{
+                "objectId":"ShowerDoor|-02.67|+01.00|+02.80"
+            }
+        }
+    ]
+}

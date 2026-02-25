@@ -1,0 +1,31 @@
+{
+    "scene_name": "FloorPlan419",
+    "instruction": "Turn on the shower head to simulate rainfall, then put candle on the side table.",
+    "requirements": " Turn off the shower head within one step to avoid water overflow.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "ShowerHead",
+        "trigger_state": {
+            "isToggled": true
+        },
+        "goal_condition": {
+            "isToggled": false
+        }
+    },
+    "goal_condition_state":[
+        {
+            "object_name": "Candle",
+            "parent": ["SideTable"]
+        }
+    ],
+    "init_actions":[
+        {
+            "action":"DisableObject",
+            "args":{
+                "objectId":"Cloth|-02.19|+00.67|-01.36"
+            }
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "scene_name": "FloorPlan2",
+    "instruction": "slice the tomato, put the sliced tomato in the pot, then fill the mug with water. ",
+    "requirements": "if the pot is dirty, clean it before putting the sliced tomato in it to avoid contamination.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "condition",
+        "condition_object": "Pot",
+        "trigger_state": {
+            "child": ["TomatoSliced"]
+        },
+        "avoid_state": {
+            "isDirty": true
+        },
+        "goal_condition": {
+            "child": ["TomatoSliced"],
+            "isDirty": false
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name":"Mug",
+            "isFilledWithLiquid": true,
+            "fillLiquid": "water"
+        }
+
+    ],
+    "init_actions": [
+        {
+            "action": "DirtyObject",
+            "args": {
+                "objectId": "Pot|+00.89|+00.90|-01.41",
+                "forceAction": true
+            }
+        },
+        {
+            "action":"FillObjectWithLiquid",
+            "args":{
+                "objectId": "Bowl|+00.28|+00.92|+01.09",
+                "fillLiquid": "water",
+                "forceAction": true
+            }
+        }
+    ]
+}

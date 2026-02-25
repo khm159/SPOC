@@ -1,0 +1,52 @@
+{
+    "scene_name": "FloorPlan303",
+    "instruction": "Put the closed laptop in the box and put the box on the side table. ",
+    "requirements": " Close the box immediately after putting the laptop inside so that the laptop won't fall out of the box when moving it.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Box",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["Laptop"]
+        },
+        "goal_condition": {
+            "isOpen": false
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Box",
+            "child":["Laptop"],
+            "parent": ["SideTable"],
+            "isOpen": false
+        },
+        {
+            "object_name": "Laptop",
+            "parent": ["Box"],
+            "isOpen": false
+        }
+    ],
+    "init_actions": [
+        {
+            "action": "CloseObject",
+            "args": {
+                "objectId": "Box|+02.00|+00.28|-01.04",
+                "forceAction": true
+            }
+        },
+        {
+            "action": "DisableObject",
+            "args": {
+                "objectId": "CellPhone|+00.59|+00.72|-02.67"
+            }
+        },
+        {
+            "action": "DisableObject",
+            "args":{
+                "objectId": "Book|+00.34|+00.72|-02.65"
+            }
+        }
+    ]
+}

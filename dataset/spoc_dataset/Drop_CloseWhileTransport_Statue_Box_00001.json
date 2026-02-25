@@ -1,0 +1,40 @@
+{
+    "scene_name": "FloorPlan212",
+    "instruction": "Put the statue in the box and put the box on the coffee table, then close and put the laptop on the coffee table. ",
+    "requirements": " Close the box immediately after putting the statue inside so that the statue won't fall out of the box when moving it.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Box",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["Statue"]
+        },
+        "goal_condition": {
+            "isOpen": false
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Box",
+            "child":["Statue"],
+            "parent": ["CoffeeTable"],
+            "isOpen": false
+        },
+        {
+            "object_name": "Laptop",
+            "isOpen": false,
+            "parent": ["Sofa"]
+        }
+    ],
+    "init_actions": [
+        {
+            "action": "CloseObject",
+            "args": {
+                "objectId": "Box|-00.47|+01.04|-00.71",
+                "forceAction": true
+            }
+        }
+    ]
+}

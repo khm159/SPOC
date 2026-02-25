@@ -1,0 +1,24 @@
+{
+    "scene_name": "FloorPlan401",
+    "instruction": "Turn on the faucet, put the toiletpaper into the garbagecan. ",
+    "requirements": " Close the faucet no more than two steps after opening it to prevent flooding the bathroom.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 2,
+        "condition_object": "Faucet",
+        "trigger_state": {
+            "isToggled": true
+        },
+        "goal_condition": {
+            "isToggled": false
+        }
+    },
+    "goal_condition_state":[
+        {
+            "object_name": "ToiletPaper",
+            "parent": ["GarbageCan"]
+        }
+    ],
+    "init_actions":[]
+}

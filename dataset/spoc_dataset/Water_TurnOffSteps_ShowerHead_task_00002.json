@@ -1,0 +1,31 @@
+{
+    "scene_name": "FloorPlan417",
+    "instruction": "Turn on the shower head. Simultaneously, and put spary bottle on the toilet. ",
+    "requirements": " Turn off the ShowerHead no later than one step.",    
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "ShowerHead",
+        "trigger_state": {
+            "isToggled": true
+        },
+        "goal_condition": {
+            "isToggled": false
+        }
+    },
+    "goal_condition_state":[
+        {
+            "object_name": "SprayBottle",
+            "parent": ["Toilet"]
+        }
+    ],
+    "init_actions":[
+        {
+            "action":"DisableObject",
+            "args":{
+                "objectId":"ShowerDoor|-02.20|+01.05|-02.50"
+            }
+        }
+    ]
+}

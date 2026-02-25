@@ -1,0 +1,25 @@
+{
+    "scene_name": "FloorPlan413",
+    "instruction": "Put the candle on the counter, and turn on the candle, then open the toilet. ",
+    "requirements": " turn off the candle immediately after turn on to avoid fire.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Candle",
+        "trigger_state": {
+            "isToggled": true,
+            "parent": ["CounterTop"]
+        },
+        "goal_condition": {
+            "isToggled": false,
+            "parent": ["CounterTop"]
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Toilet",
+            "isOpen": true
+        }
+    ]
+}

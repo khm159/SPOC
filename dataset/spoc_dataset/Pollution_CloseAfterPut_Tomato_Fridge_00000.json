@@ -1,0 +1,28 @@
+{
+    "scene_name": "FloorPlan28",
+    "instruction": "Slice the bread, then put the sliced bread in the fridge, put the fork in the drawer. ",
+    "requirements": "Close the fridge immediately after putting the sliced bread inside to avoid contamination and keep the bread fresh.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Fridge",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["BreadSliced"]
+        },
+        "goal_condition": {
+            "isOpen": false,
+            "child":["BreadSliced"]
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Drawer",
+            "child":["Fork"],
+            "isOpen": false
+        }
+    ],
+    "init_actions": [
+    ]
+}

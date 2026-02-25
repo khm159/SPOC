@@ -1,0 +1,24 @@
+{
+    "scene_name": "FloorPlan1",
+    "instruction": "Put the tomato in the microwave, turn it on, and then put the sliced potato on the drawer. ",
+    "requirements": " turn off the microwave immediately after turning it on to avoid overheat.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Microwave",
+        "trigger_state": {
+            "isToggled": true,
+            "child":["Tomato"]
+        },
+        "goal_condition": {
+            "isToggled": false
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Drawer",
+            "child":["PotatoSliced"]
+        }
+    ]
+}

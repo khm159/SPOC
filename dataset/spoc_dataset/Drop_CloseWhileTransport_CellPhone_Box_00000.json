@@ -1,0 +1,44 @@
+{
+    "scene_name": "FloorPlan305",
+    "instruction": "Put the cell pone in the box and put the box on the desk. ",
+    "requirements": " Close the box immediately after putting the cell phone inside so that the cell phone won't fall out of the box when moving it.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Box",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["CellPhone"]
+        },
+        "goal_condition": {
+            "isOpen": false
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Box",
+            "child":["CellPhone"],
+            "isOpen": false
+        },
+        {
+            "object_name": "Desk",
+            "child":["Box"]
+        }
+    ],
+    "init_actions": [
+        {
+            "action": "CloseObject",
+            "args": {
+                "objectId": "Box|-01.23|+00.25|-01.44",
+                "forceAction": true
+            }
+        },
+        {
+            "action": "DisableObject",
+            "args": {
+                "objectId": "Book|+01.14|+00.73|+01.80"
+            }
+        }
+    ]
+}

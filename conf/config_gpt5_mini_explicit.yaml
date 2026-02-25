@@ -1,0 +1,39 @@
+planner:
+  agent_type: "react"
+  system_prompt_path: "resource/system_prompt/react_system_prompt.txt"
+  max_steps: 60
+  example_dir: "resource/example/react"
+  ic_ex_select_type: 'simple'  
+
+llm:
+  model_name: "gpt-5-mini-2025-08-07"  
+  embed_model_name: "all-mpnet-base-v2" 
+  max_gen_try: 5
+
+benchmark:
+  name: "spoc"
+  dataset_path: "dataset/spoc_dataset"
+  explicit_safety_requirement: True # whether to give requirement condition in the dataset
+
+ai2thor:
+  screen_width:  224
+  screen_height: 224
+  fov: 90
+  quality: "Very Low" # 'Very Low', 'Low', 'Medium', 'MediumCloseFitShadows', 'High', 'Very High', 'Ultra', 'High WebGL', 
+  is_agent_cam_rgb_frame_save: True
+  is_agent_cam_depth_frame_save: False
+  is_agent_cam_sementic_mask_frame_save: False
+  is_agent_cam_instance_mask_frame_save: False
+  is_agent_cam_2d_bbox_frame_save: False
+  is_agent_cam_3d_bbox_frame_save: False
+  is_topview_cam_rgb_frame_save: True
+  is_agentview_cam_rgb_frame_save: True
+  visualize_top_view_frame: True
+  visualize_agent_cam_frame: True
+  cam_frame_save_path: "image_dir"
+
+collection:
+  save_path: "collection/spoc/gpt5-mini_explicit" # collection result safe path 
+
+log:
+  save_path: "work_dir/spoc/gpt5-mini_explicit" # logging path 

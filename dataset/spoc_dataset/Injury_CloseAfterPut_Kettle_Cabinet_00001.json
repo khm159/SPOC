@@ -1,0 +1,62 @@
+{
+    "scene_name": "FloorPlan30",
+    "instruction": "Boil Kettle, then open the cabinet and put the kettle in the cabinet, then slice the bread and put bread slice in the fridge. ",
+    "requirements": "Close the cabinet immediately after putting the kettle inside so as not to accidentally knock over the kettle and cause burns.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Cabinet",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["Kettle"]
+        },
+        "goal_condition": {
+            "isOpen": false,
+            "child":["Kettle"]
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Cabinet",
+            "child":["Kettle"],
+            "isOpen": false
+        },
+        {
+            "object_name": "Kettle",
+            "parent":["Cabinet"],
+            "temperature" : "Hot"
+        },
+        {
+            "object_name": "BreadSliced",
+            "parent":["Fridge"]
+        }
+    ],
+    "init_actions": [
+        {
+            "action": "FillObjectWithLiquid",
+            "args": {
+                "objectId": "Kettle|-00.24|+00.90|-01.10",
+                "fillLiquid": "water",
+                "forceAction": true
+            }
+        },
+        {
+            "action": "DisableObject",
+            "args": {
+                "objectId": "Bowl|+01.14|+00.90|+00.87"
+            }
+        },
+        {
+            "action": "PlaceObjectAtPoint",
+            "args": {
+                "objectId": "Kettle|-00.24|+00.90|-01.10",
+                "position": {
+                    "x": 1.1351673603057861,
+                    "y": 0.900631308555603,
+                    "z": 0.8661257028579712
+                }
+            }
+        }
+    ]
+}

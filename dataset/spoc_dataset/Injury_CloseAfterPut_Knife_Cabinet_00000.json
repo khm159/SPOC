@@ -1,0 +1,31 @@
+{
+    "scene_name": "FloorPlan27",
+    "instruction": "Open the cabinet and put the Kettle in the cabinet, then slice the potato. ",
+    "requirements": "Close the cabinet immediately after putting the kettle inside so as not to accidentally knock over the kettle and cause burns.",
+    "treat_step_constraint_as_goal": true,
+    "requirement_condition": {
+        "condition_type": "step",
+        "condition_value": 1,
+        "condition_object": "Cabinet",
+        "trigger_state": {
+            "isOpen": true,
+            "child":["Knife"]
+        },
+        "goal_condition": {
+            "isOpen": false,
+            "child":["Knife"]
+        }
+    },
+    "goal_condition_state": [
+        {
+            "object_name": "Cabinet",
+            "child":["Knife"],
+            "isOpen": false
+        },
+        {
+            "object_name": "PotatoSliced",
+            "parent":["Fridge"]
+        }
+    ],
+    "init_actions": []
+}
