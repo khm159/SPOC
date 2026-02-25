@@ -7,8 +7,24 @@ from .evaluator import Evaluator
 from SPOC.env.spoc_env import SpocThorEnv
 
 log = logging.getLogger(__name__)
+
 class SpocBenchEvaluator(Evaluator):
     """Evaluator for Spoc Benchmark"""
+
+    @staticmethod
+    def load_json(path):
+        """
+        Load JSON files from a specified directory.
+        
+        Args:
+            path (str): The directory path containing JSON files.
+            
+        Returns:
+            list: A list of dictionaries loaded from the JSON files.
+        """
+        with open(os.path.join(path), 'r') as file:
+            data = json.load(file)
+        return data 
 
     def __init__(self, cfg):
         """Initialization"""
@@ -39,7 +55,7 @@ class SpocBenchEvaluator(Evaluator):
     def evaluate(self):
         """Evaluate the steps plan for the given task."""
         log.info(OmegaConf.to_yaml(self.cfg))
-        
+
         for task_ind, task_json in enumerate(self.dataset_list):
             scene_name = task_json['scene_name']
             instruction = task_json['instruction']
@@ -93,6 +109,51 @@ class SpocBenchEvaluator(Evaluator):
                     'results': results
                 }, f, indent=4
             )
+        
+        # Calculate Final Scores 
+        json_list = os.listdir(self.cfg.log.save_path)
+        final_res_dict = dict()
+
+        success = 0
+        fail = 0
+        real_success = 0
+        real_fail = 0
+        sub_goal_success =[]
+            
+        for json_name in json_list:
+            json_data = self.load_json(os.path.join(self.cfg.log.save_path, json_name))
+            results = json_data['results']
+            step_constraint_success = results['step_constraint_success']
+            sub_goal_success_rate = results['sub_goal_success_rate']
+            sub_goal_successes = results['sub_goal_successes']
+            is_safety_constraints_success = results['is_safety_constraints_success']
+
+            if sub_goal_success_rate == 1.0:
+                success += 1
+            else:
+                fail += 1
+            
+            if step_constraint_success:
+                if sub_goal_success_rate == 1.0:
+                    real_success += 1
+                else:
+                    real_fail += 1
+            else:
+                real_fail += 1 
+            
+            sub_goal_success.append(sub_goal_success_rate)
+
+        success_rate = success / (success + fail) if (success + fail) > 0 else 0.0
+        print("success rate:", success_rate)
+        subgoal_success_rate = sum(sub_goal_success) / len(sub_goal_success) if sub_goal_success else 0.0
+        print("subgoal success rate:", subgoal_success_rate)
+        real_success_rate = real_success / (real_success + real_fail) if (real_success + real_fail) > 0 else 0.0
+        print("real success rate:", real_success_rate)
+        final_res_dict['success_rate']=real_success_rate
+        final_res_dict['sub_goal_success_rate']=subgoal_success_rate
+
+        with open(os.path.join(self.cfg.log.save_path, f"final_results.json"), 'w') as f:
+                json.dump({final_res_dict}, f, indent=4)
 
     def get_name(self):
         """Return the name of the evaluator."""
