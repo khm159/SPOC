@@ -16,10 +16,10 @@ benchmark:
   explicit_safety_requirement: True # whether to give requirement condition in the dataset
 
 ai2thor:
-  screen_width:  224
-  screen_height: 224
+  screen_width:  512
+  screen_height: 512
   fov: 90
-  quality: "Very Low" # 'Very Low', 'Low', 'Medium', 'MediumCloseFitShadows', 'High', 'Very High', 'Ultra', 'High WebGL', 
+  quality: "High WebGL" # 'Very Low', 'Low', 'Medium', 'MediumCloseFitShadows', 'High', 'Very High', 'Ultra', 'High WebGL', 
   is_agent_cam_rgb_frame_save: True
   is_agent_cam_depth_frame_save: False
   is_agent_cam_sementic_mask_frame_save: False
