@@ -121,11 +121,15 @@ class SpocBenchEvaluator(Evaluator):
         sub_goal_success =[]
             
         for json_name in json_list:
-            json_data = self.load_json(os.path.join(self.cfg.log.save_path, json_name))
+            json_path = os.path.join(self.cfg.log.save_path, json_name)
+            if os.path.isdir(json_path):
+                continue
+            if "final_results.json" in json_path:
+                continue
+            json_data = self.load_json(json_path)
             results = json_data['results']
             step_constraint_success = results['step_constraint_success']
             sub_goal_success_rate = results['sub_goal_success_rate']
-            sub_goal_successes = results['sub_goal_successes']
             is_safety_constraints_success = results['is_safety_constraints_success']
 
             if sub_goal_success_rate == 1.0:
@@ -133,7 +137,7 @@ class SpocBenchEvaluator(Evaluator):
             else:
                 fail += 1
             
-            if step_constraint_success:
+            if step_constraint_success and is_safety_constraints_success:
                 if sub_goal_success_rate == 1.0:
                     real_success += 1
                 else:
@@ -153,7 +157,7 @@ class SpocBenchEvaluator(Evaluator):
         final_res_dict['sub_goal_success_rate']=subgoal_success_rate
 
         with open(os.path.join(self.cfg.log.save_path, f"final_results.json"), 'w') as f:
-                json.dump({final_res_dict}, f, indent=4)
+                json.dump(final_res_dict, f, indent=4)
 
     def get_name(self):
         """Return the name of the evaluator."""

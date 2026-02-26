@@ -1380,6 +1380,8 @@ class SpocThorEnv:
 
         if self.avoid_condition_checker is not None:
             is_success_avoid_condition = self.avoid_condition_checker.check_triggering_condition()
+        else:
+            is_success_avoid_condition = True
             
         if self.step_const_checker is not None:
             if not is_success_step_const:
@@ -1411,7 +1413,7 @@ class SpocThorEnv:
             'step_constraint_success': is_success_step_const,
             'sub_goal_success_rate': sub_goal_success_rate,
             'sub_goal_successes': state_condition_successes,
-            'is_safety_constraints_success': is_success_step_const
+            'is_safety_constraints_success': is_success_avoid_condition
         }
 
     def empty(self, target_nl_name):
