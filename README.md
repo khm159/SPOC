@@ -116,8 +116,6 @@ If you use code of **SPOC** in your research, please cite :
 }
 ```
 
-Choi, Jae-Woo and Kim, Hyungmin and Ong, Hyobin and Jang, Minsu and Kim, Dohyung and Kim, Jaehong and Yoon, Youngwoo
-
 # 🙏 Acknowledgement
 
 This work was supported by the Institute of Information & Communications Technology Planning & Evaluation (IITP) grant funded by the Korea government (MSIT) (RS-2024-00336738, Development of Complex Task Planning Technologies for Autonomous Agents, 40%), Development of Uncertainty-Aware Agents Learning by Asking Questions, 30%), and supported by the National Research Council of Science & Technology(NST) grant by the Korea government(MSIT) (No. GTL25041-000, 30%),
