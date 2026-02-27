@@ -110,11 +110,13 @@ If you use code of **SPOC** in your research, please cite :
 ```bibtex
 @article{kim2026spoc,
   title={SPOC: Safety-Aware Planning Under Observability and Physical Constraints},
-  author={Hyungmin Kim, Hobeom Jeon, Dohyung Kim, Minsu Jang, Jaehong Kim},
-  booktitle={arXiv},
+  author={Kim, Hyungmin and Jeon, Hobeom and Kim,Dohyung and Jang, Minsu and Kim, Jaehong},
+  booktitle={arXiv prerpint arXiv:2602.21595},
   year={2026}
 }
 ```
+
+Choi, Jae-Woo and Kim, Hyungmin and Ong, Hyobin and Jang, Minsu and Kim, Dohyung and Kim, Jaehong and Yoon, Youngwoo
 
 # 🙏 Acknowledgement
 
