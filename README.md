@@ -57,7 +57,7 @@ python evaluate.py --config-name config_gpt5_mini_explicit # for explicit settin
 python evaluate.py --config-name config_gpt5_mini_implicit # for implicit setting experiment
 ```
 
-# Configuration 
+# ⚙️ Configuration 
 
 ```yaml
 planner:
