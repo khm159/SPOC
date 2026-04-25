@@ -108,12 +108,17 @@ log:
 If you use code of **SPOC** in your research, please cite :
 
 ```bibtex
-@article{kim2026spoc,
-  title={SPOC: Safety-Aware Planning Under Observability and Physical Constraints},
-  author={Kim, Hyungmin and Jeon, Hobeom and Kim,Dohyung and Jang, Minsu and Kim, Jaehong},
-  booktitle={arXiv prerpint arXiv:2602.21595},
-  year={2026}
-}
+@INPROCEEDINGS{kimspoc2026,
+  author={Kim, Hyungmin and Jeon, Hobeom and Kim, Dohyung and Jang, Minsu and Kim, Jaehong},
+  booktitle={ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
+  title={SPOC: Safety-Aware Planning Under Partial Observability and Physical Constraints}, 
+  year={2026},
+  volume={},
+  number={},
+  pages={20097-20101},
+  keywords={Circuits;Feedback;Communications technology;Information and communication technology;Graphical user interfaces;Protocols;Communication systems;Telecommunications;HTTP;Avatars;Embodied Task Planning;AI Safety},
+  doi={10.1109/ICASSP55912.2026.11463090}}
+
 ```
 
 # 🙏 Acknowledgement
