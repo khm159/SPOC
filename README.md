@@ -3,7 +3,8 @@ SPOC: Safety-Aware Planning Under Partial Observability and Physical Constraints
 </h1>
 
 <p align="center">
-  📄  <a href="https://ieeexplore.ieee.org/document/11463090"><strong>Paper</strong></a> 
+  📄  <a href="https://ieeexplore.ieee.org/document/11463090"><strong>Paper(IEEE)</strong></a> 
+  📄  <a href="https://arxiv.org/abs/2602.21595"><strong>Paper(arXiv)</strong></a> 
 </p>
 
 <p align="center">
